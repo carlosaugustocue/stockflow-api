@@ -48,6 +48,8 @@ API base: `http://127.0.0.1:8000/api/v1`
 - `GET /api/v1/inventory/products`
 - `POST /api/v1/inventory/products`
 - `GET /api/v1/inventory/products/{productId}`
+- `PATCH /api/v1/inventory/products/{productId}`
+- `DELETE /api/v1/inventory/products/{productId}`
 - `PATCH /api/v1/inventory/products/{productId}/stock`
 - `GET /api/v1/inventory/products/below-reorder-point`
 
@@ -66,8 +68,13 @@ API base: `http://127.0.0.1:8000/api/v1`
 
 - `GET /api/v1/reporting/inventory-metrics`
 - `GET /api/v1/reporting/summary`
-- `GET /api/v1/reporting/inventory-metrics/export/pdf`
-- `GET /api/v1/reporting/inventory-metrics/export/excel`
+- `GET /api/v1/reporting/alerts`
+- `GET /api/v1/reporting/warehouse-utilization`
+- `GET /api/v1/reporting/service-level?from=YYYY-MM-DD&to=YYYY-MM-DD&category=<cat>&zone=<prefix>`
+- `GET /api/v1/reporting/inventory-rotation`
+- `GET /api/v1/reporting/accuracy`
+- `GET /api/v1/reporting/inventory-metrics/export/pdf?from=YYYY-MM-DD&to=YYYY-MM-DD&category=<cat>&zone=<prefix>`
+- `GET /api/v1/reporting/inventory-metrics/export/excel?from=YYYY-MM-DD&to=YYYY-MM-DD&category=<cat>&zone=<prefix>`
 
 ## Comandos por módulo (base)
 
@@ -139,6 +146,16 @@ Archivo generado:
 
 - `storage/api-docs/api-docs.yaml`
 - `openapi.yaml` (copia versionada en raíz)
+
+Guías funcionales:
+
+- `docs/funcionalidad_api.md`
+- `docs/trazabilidad_guia_nuclear_v.md`
+
+Colección Postman MVP:
+
+- `docs/postman/Stockflow_MVP.postman_collection.json`
+- `docs/postman/Stockflow_MVP.postman_environment.json`
 
 ## Exportación PDF/Excel
 

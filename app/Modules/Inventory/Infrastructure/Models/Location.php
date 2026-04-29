@@ -7,6 +7,11 @@ namespace Modules\Inventory\Infrastructure\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+/**
+ * @property int $id
+ * @property string $code
+ * @property string $name
+ */
 final class Location extends Model
 {
     protected $table = 'inventory_locations';
@@ -16,6 +21,9 @@ final class Location extends Model
         'name',
     ];
 
+    /**
+     * @return HasMany<Lot, $this>
+     */
     public function lots(): HasMany
     {
         return $this->hasMany(Lot::class, 'location_id');

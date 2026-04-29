@@ -26,8 +26,10 @@ final class DispatchController extends Controller
                 required: ['order_reference', 'product_id', 'quantity'],
                 properties: [
                     new OA\Property(property: 'order_reference', type: 'string'),
+                    new OA\Property(property: 'client_name', type: 'string'),
                     new OA\Property(property: 'product_id', type: 'integer'),
                     new OA\Property(property: 'quantity', type: 'integer', minimum: 1),
+                    new OA\Property(property: 'expected_dispatch_at', type: 'string', format: 'date-time'),
                 ],
             ),
         ),
@@ -37,8 +39,10 @@ final class DispatchController extends Controller
     {
         $order = $action(new CreateDispatchOrderData(
             orderReference: (string) $request->string('order_reference'),
+            clientName: $request->filled('client_name') ? (string) $request->string('client_name') : null,
             productId: $request->integer('product_id'),
             quantity: $request->integer('quantity'),
+            expectedDispatchAt: $request->filled('expected_dispatch_at') ? (string) $request->string('expected_dispatch_at') : null,
         ));
 
         return response()->json([

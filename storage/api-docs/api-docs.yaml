@@ -79,11 +79,16 @@ paths:
               properties:
                 order_reference:
                   type: string
+                client_name:
+                  type: string
                 product_id:
                   type: integer
                 quantity:
                   type: integer
                   minimum: 1
+                expected_dispatch_at:
+                  type: string
+                  format: date-time
               type: object
       responses:
         201:
@@ -154,6 +159,8 @@ paths:
               properties:
                 name:
                   type: string
+                category:
+                  type: string
                 sku:
                   type: string
                 reorder_point:
@@ -179,6 +186,36 @@ paths:
       responses:
         200:
           description: 'Detalle de producto'
+    delete:
+      tags:
+        - Inventory
+      summary: 'Da de baja un producto'
+      operationId: 0ba5dc17b30fe78372a6f7ed41a801ac
+      parameters:
+        -
+          name: productId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        204:
+          description: 'Producto eliminado'
+    patch:
+      tags:
+        - Inventory
+      summary: 'Actualiza datos base de producto'
+      operationId: 7e4748338a4e6efe49beeb7111ddbbec
+      parameters:
+        -
+          name: productId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: 'Producto actualizado'
   '/api/v1/inventory/products/{productId}/stock':
     patch:
       tags:
@@ -326,6 +363,51 @@ paths:
       responses:
         200:
           description: 'Archivo XLSX'
+  /api/v1/reporting/alerts:
+    get:
+      tags:
+        - Reporting
+      summary: 'Obtiene alertas operativas de vencimiento, stock y despacho'
+      operationId: 02e433567d02d106249067d7c2545ff2
+      responses:
+        200:
+          description: 'Alertas operativas'
+  /api/v1/reporting/warehouse-utilization:
+    get:
+      tags:
+        - Reporting
+      summary: 'Obtiene utilización de almacén por ubicación'
+      operationId: 1edea9718c99b4baa99b1a19b42c6672
+      responses:
+        200:
+          description: 'Utilización por ubicación'
+  /api/v1/reporting/service-level:
+    get:
+      tags:
+        - Reporting
+      summary: 'Obtiene nivel de servicio (completitud y puntualidad) con filtros'
+      operationId: 4faf36e0f46d1f26d1e11d0c9ebb7932
+      responses:
+        200:
+          description: 'Nivel de servicio'
+  /api/v1/reporting/inventory-rotation:
+    get:
+      tags:
+        - Reporting
+      summary: 'Obtiene índice de rotación por categoría y tendencia básica'
+      operationId: bd0fc41f201bbcf6fcd9c76d52ade4f2
+      responses:
+        200:
+          description: 'Rotación por categoría'
+  /api/v1/reporting/accuracy:
+    get:
+      tags:
+        - Reporting
+      summary: 'Obtiene exactitud de inventario (teórico vs stock registrado)'
+      operationId: f5d3093be757dce933c2a39372e6afb9
+      responses:
+        200:
+          description: 'Exactitud de inventario'
 components:
   securitySchemes:
     bearerAuth:

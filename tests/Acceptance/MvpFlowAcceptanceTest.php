@@ -122,6 +122,7 @@ it('escenario 4: dispatch hace pick FEFO y confirma descuento', function (): voi
         'order_reference' => 'ACPT-DSP-1',
         'product_id' => $product->id,
         'quantity' => 5,
+        'expected_dispatch_at' => now()->addDay()->toISOString(),
     ]);
     $order->assertCreated();
 

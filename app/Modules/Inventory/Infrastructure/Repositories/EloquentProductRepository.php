@@ -11,10 +11,11 @@ use Modules\Inventory\Infrastructure\Models\StockLevel;
 
 final class EloquentProductRepository
 {
-    public function create(string $name, string $sku, int $reorderPoint): Product
+    public function create(string $name, ?string $category, string $sku, int $reorderPoint): Product
     {
         $product = Product::query()->create([
             'name' => $name,
+            'category' => $category,
             'sku' => $sku,
             'reorder_point' => $reorderPoint,
         ]);
@@ -56,5 +57,22 @@ final class EloquentProductRepository
             })
             ->orderBy('id')
             ->get();
+    }
+
+    /**
+     * @param  array<string, mixed>  $attributes
+     */
+    public function update(int $productId, array $attributes): Product
+    {
+        $product = Product::query()->findOrFail($productId);
+        $product->fill($attributes);
+        $product->save();
+
+        return $product->fresh(['stockLevel']);
+    }
+
+    public function delete(int $productId): void
+    {
+        Product::query()->findOrFail($productId)->delete();
     }
 }

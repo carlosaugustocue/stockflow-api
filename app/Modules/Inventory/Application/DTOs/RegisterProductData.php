@@ -8,6 +8,7 @@ final readonly class RegisterProductData
 {
     public function __construct(
         public string $name,
+        public ?string $category,
         public string $sku,
         public int $reorderPoint,
     ) {}

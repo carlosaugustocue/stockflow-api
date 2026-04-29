@@ -11,6 +11,8 @@ Route::prefix('api/v1/inventory')->group(function (): void {
         Route::post('/products', [InventoryController::class, 'store']);
         Route::get('/products/below-reorder-point', [InventoryController::class, 'belowReorderPoint']);
         Route::get('/products/{productId}', [InventoryController::class, 'show']);
+        Route::patch('/products/{productId}', [InventoryController::class, 'update']);
+        Route::delete('/products/{productId}', [InventoryController::class, 'destroy']);
         Route::patch('/products/{productId}/stock', [InventoryController::class, 'adjustStock']);
     });
 });

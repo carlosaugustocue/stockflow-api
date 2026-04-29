@@ -15,6 +15,7 @@ use Modules\Inventory\Application\DTOs\AdjustStockData;
 use Modules\Inventory\Application\DTOs\RegisterProductData;
 use Modules\Inventory\Http\Requests\AdjustStockRequest;
 use Modules\Inventory\Http\Requests\RegisterProductRequest;
+use Modules\Inventory\Http\Requests\UpdateProductRequest;
 use Modules\Inventory\Http\Resources\ProductResource;
 use Modules\Inventory\Infrastructure\Repositories\EloquentProductRepository;
 use OpenApi\Attributes as OA;
@@ -54,6 +55,7 @@ final class InventoryController extends Controller
                 required: ['name', 'sku', 'reorder_point'],
                 properties: [
                     new OA\Property(property: 'name', type: 'string'),
+                    new OA\Property(property: 'category', type: 'string'),
                     new OA\Property(property: 'sku', type: 'string'),
                     new OA\Property(property: 'reorder_point', type: 'integer', minimum: 0),
                 ],
@@ -65,6 +67,7 @@ final class InventoryController extends Controller
     {
         $product = $action(new RegisterProductData(
             name: (string) $request->string('name'),
+            category: $request->filled('category') ? (string) $request->string('category') : null,
             sku: strtoupper((string) $request->string('sku')),
             reorderPoint: $request->integer('reorder_point'),
         ));
@@ -141,5 +144,55 @@ final class InventoryController extends Controller
             'data' => ProductResource::collection($action()),
             'meta' => [],
         ]);
+    }
+
+    #[OA\Patch(
+        path: '/api/v1/inventory/products/{productId}',
+        tags: ['Inventory'],
+        summary: 'Actualiza datos base de producto',
+        parameters: [
+            new OA\Parameter(name: 'productId', in: 'path', required: true, schema: new OA\Schema(type: 'integer')),
+        ],
+        responses: [new OA\Response(response: 200, description: 'Producto actualizado')],
+    )]
+    public function update(int $productId, UpdateProductRequest $request, EloquentProductRepository $repository): JsonResponse
+    {
+        $payload = [];
+
+        if ($request->has('name')) {
+            $payload['name'] = (string) $request->string('name');
+        }
+        if ($request->has('category')) {
+            $payload['category'] = $request->filled('category') ? (string) $request->string('category') : null;
+        }
+        if ($request->has('sku')) {
+            $payload['sku'] = strtoupper((string) $request->string('sku'));
+        }
+        if ($request->has('reorder_point')) {
+            $payload['reorder_point'] = $request->integer('reorder_point');
+        }
+
+        $product = $repository->update($productId, $payload);
+
+        return response()->json([
+            'data' => ProductResource::make($product),
+            'meta' => ['message' => 'Producto actualizado correctamente.'],
+        ]);
+    }
+
+    #[OA\Delete(
+        path: '/api/v1/inventory/products/{productId}',
+        tags: ['Inventory'],
+        summary: 'Da de baja un producto',
+        parameters: [
+            new OA\Parameter(name: 'productId', in: 'path', required: true, schema: new OA\Schema(type: 'integer')),
+        ],
+        responses: [new OA\Response(response: 204, description: 'Producto eliminado')],
+    )]
+    public function destroy(int $productId, EloquentProductRepository $repository): JsonResponse
+    {
+        $repository->delete($productId);
+
+        return response()->json([], 204);
     }
 }

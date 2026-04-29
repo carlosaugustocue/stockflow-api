@@ -1,0 +1,295 @@
+{
+  "info": {
+    "_postman_id": "3b31f73d-2d95-4c3a-9977-6bb6d2672b10",
+    "name": "Stockflow MVP API",
+    "description": "Coleccion base para demo MVP de Stockflow API.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth - Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"test@example.com\",\n  \"password\": \"password\",\n  \"device_name\": \"postman-mvp\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/auth/login",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Login status 200', function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "var json = pm.response.json();",
+              "if (json && json.data && json.data.token) {",
+              "    pm.collectionVariables.set('token', json.data.token);",
+              "}"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Inventory - Create Product",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Producto Demo MVP\",\n  \"category\": \"Alimentos\",\n  \"sku\": \"SKU-MVP-DEMO-01\",\n  \"reorder_point\": 5\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/inventory/products",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "inventory",
+            "products"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Create product status 201', function () {",
+              "    pm.response.to.have.status(201);",
+              "});",
+              "var json = pm.response.json();",
+              "if (json && json.data && json.data.id) {",
+              "    pm.collectionVariables.set('product_id', json.data.id);",
+              "}"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Inventory - Adjust Stock",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"quantity\": 15,\n  \"operation\": \"add\",\n  \"reason\": \"Carga inicial para demo\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/inventory/products/{{product_id}}/stock",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "inventory",
+            "products",
+            "{{product_id}}",
+            "stock"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Dispatch - Create Order (with client_name)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"order_reference\": \"PMV-ORDER-001\",\n  \"client_name\": \"Cliente Demo\",\n  \"product_id\": {{product_id}},\n  \"quantity\": 3,\n  \"expected_dispatch_at\": \"{{expected_dispatch_at}}\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/dispatch/orders",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "dispatch",
+            "orders"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Create dispatch order status 201', function () {",
+              "    pm.response.to.have.status(201);",
+              "});",
+              "var json = pm.response.json();",
+              "if (json && json.data && json.data.id) {",
+              "    pm.collectionVariables.set('dispatch_order_id', json.data.id);",
+              "}"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Reporting - Alerts",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/reporting/alerts",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "reporting",
+            "alerts"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Reporting - Accuracy",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/reporting/accuracy",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "reporting",
+            "accuracy"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Reporting - Export Excel (filtered)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/reporting/inventory-metrics/export/excel?from={{from_date}}&to={{to_date}}&category=Alimentos&zone=Z-A",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "reporting",
+            "inventory-metrics",
+            "export",
+            "excel"
+          ],
+          "query": [
+            {
+              "key": "from",
+              "value": "{{from_date}}"
+            },
+            {
+              "key": "to",
+              "value": "{{to_date}}"
+            },
+            {
+              "key": "category",
+              "value": "Alimentos"
+            },
+            {
+              "key": "zone",
+              "value": "Z-A"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8000/api/v1"
+    },
+    {
+      "key": "token",
+      "value": ""
+    },
+    {
+      "key": "product_id",
+      "value": ""
+    },
+    {
+      "key": "dispatch_order_id",
+      "value": ""
+    },
+    {
+      "key": "expected_dispatch_at",
+      "value": "2026-06-30T18:00:00Z"
+    },
+    {
+      "key": "from_date",
+      "value": "2026-01-01"
+    },
+    {
+      "key": "to_date",
+      "value": "2026-12-31"
+    }
+  ]
+}

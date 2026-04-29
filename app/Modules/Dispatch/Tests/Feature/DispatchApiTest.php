@@ -50,6 +50,7 @@ it('ejecuta flujo de despacho con picking FEFO y confirmación', function (): vo
         'order_reference' => 'ORD-10001',
         'product_id' => $product->id,
         'quantity' => 10,
+        'expected_dispatch_at' => now()->addDay()->toISOString(),
     ]);
     $create->assertCreated();
     $orderId = (int) $create->json('data.id');

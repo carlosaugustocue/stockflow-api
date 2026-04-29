@@ -21,9 +21,11 @@ final class CreateDispatchOrderAction
 
         return DispatchOrder::query()->create([
             'order_reference' => $data->orderReference,
+            'client_name' => $data->clientName,
             'product_id' => $data->productId,
             'quantity' => $data->quantity,
             'status' => 'pending',
+            'expected_dispatch_at' => $data->expectedDispatchAt,
         ]);
     }
 }

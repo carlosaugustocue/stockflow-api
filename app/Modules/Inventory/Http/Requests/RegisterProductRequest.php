@@ -20,6 +20,7 @@ final class RegisterProductRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'max:255'],
+            'category' => ['nullable', 'string', 'max:100'],
             'sku' => ['required', 'string', 'max:32', 'unique:inventory_products,sku'],
             'reorder_point' => ['required', 'integer', 'min:0'],
         ];

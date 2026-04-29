@@ -42,6 +42,7 @@ final class ConfirmDispatchAction
         $stock->save();
 
         $order->status = 'confirmed';
+        $order->confirmed_at = now();
         $order->save();
 
         Event::dispatch(new DispatchConfirmed(

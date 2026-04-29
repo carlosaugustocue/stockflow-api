@@ -8,7 +8,9 @@ final readonly class CreateDispatchOrderData
 {
     public function __construct(
         public string $orderReference,
+        public ?string $clientName,
         public int $productId,
         public int $quantity,
+        public ?string $expectedDispatchAt,
     ) {}
 }

@@ -6,7 +6,9 @@ namespace Modules\Inventory\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Modules\Inventory\Infrastructure\Models\Product;
 
+/** @mixin Product */
 final class ProductResource extends JsonResource
 {
     /**
@@ -17,6 +19,7 @@ final class ProductResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
+            'category' => $this->category,
             'sku' => $this->sku,
             'reorder_point' => (int) $this->reorder_point,
             'stock' => [

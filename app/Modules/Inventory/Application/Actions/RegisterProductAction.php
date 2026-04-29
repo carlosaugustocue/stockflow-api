@@ -29,6 +29,7 @@ final class RegisterProductAction
 
         $product = $this->repository->create(
             name: $domainProduct->name,
+            category: $data->category,
             sku: $domainProduct->sku->value,
             reorderPoint: $domainProduct->reorderPoint->value,
         );

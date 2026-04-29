@@ -95,3 +95,30 @@ it('retorna formato unificado para errores de validación', function (): void {
         ->assertJsonPath('code', 'VALIDATION_ERROR')
         ->assertJsonStructure(['message', 'errors', 'code']);
 });
+
+it('actualiza y da de baja un producto', function (): void {
+    actingAsInventoryManager();
+
+    $product = Product::factory()->create([
+        'name' => 'Producto Inicial',
+        'sku' => 'SKU-INIT-001',
+        'reorder_point' => 4,
+    ]);
+    StockLevel::query()->create(['product_id' => $product->id, 'quantity' => 3]);
+
+    $update = $this->patchJson("/api/v1/inventory/products/{$product->id}", [
+        'name' => 'Producto Actualizado',
+        'reorder_point' => 9,
+    ]);
+
+    $update->assertOk()
+        ->assertJsonPath('data.name', 'Producto Actualizado')
+        ->assertJsonPath('data.reorder_point', 9);
+
+    $delete = $this->deleteJson("/api/v1/inventory/products/{$product->id}");
+    $delete->assertNoContent();
+
+    $this->getJson("/api/v1/inventory/products/{$product->id}")
+        ->assertNotFound()
+        ->assertJsonPath('code', 'HTTP_404');
+});
