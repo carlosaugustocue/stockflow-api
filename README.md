@@ -5,11 +5,20 @@ Backend REST API stateless para gestión de inventario y logística en un monoli
 
 ## Requisitos
 
-- PHP 8.3+
+- PHP 8.3+ con extensión **pdo_mysql**
 - Composer 2+
-- SQLite (local) o MySQL 8 (entornos de integración)
+- **MySQL 8** (motor principal de la aplicación)
+- Para ejecutar solo tests: no hace falta MySQL (PHPUnit usa SQLite en memoria)
 
 ## Setup local
+
+Crear la base de datos en MySQL (ejemplo):
+
+```sql
+CREATE DATABASE stockflow CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+```
+
+Configurar `.env` (partir de `.env.example`): `DB_CONNECTION=mysql`, `DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`.
 
 ```bash
 composer install
@@ -17,6 +26,8 @@ cp .env.example .env
 php artisan key:generate
 php artisan migrate:fresh --seed
 ```
+
+Si necesitas arrancar sin MySQL (solo pruebas locales), puedes usar SQLite comentando las variables en `.env.example` y definiendo `DB_CONNECTION=sqlite` y `DB_DATABASE` como archivo SQLite.
 
 ## Ejecutar aplicación
 
