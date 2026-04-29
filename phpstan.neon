@@ -1,0 +1,16 @@
+includes:
+    - vendor/larastan/larastan/extension.neon
+    - phpstan-baseline.neon
+
+parameters:
+    level: 6
+    paths:
+        - app
+        - tests
+    excludePaths:
+        analyse:
+            - app/Modules/*/Tests/*
+    tmpDir: storage/phpstan
+    treatPhpDocTypesAsCertain: false
+    universalObjectCratesClasses:
+        - stdClass

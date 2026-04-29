@@ -1,0 +1,733 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Method App\\Models\\User\:\:roles\(\) return type with generic class Illuminate\\Database\\Eloquent\\Relations\\BelongsToMany does not specify its types\: TRelatedModel, TDeclaringModel, TPivotModel, TAccessor \(2\-4 required\)$#'
+			identifier: missingType.generics
+			count: 1
+			path: app/Models/User.php
+
+		-
+			message: '#^Using nullsafe method call on non\-nullable type Laravel\\Sanctum\\PersonalAccessToken\. Use \-\> instead\.$#'
+			identifier: nullsafe.neverNull
+			count: 1
+			path: app/Modules/Auth/Application/Actions/LogoutAction.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Auth\\Http\\Resources\\AuthUserResource\:\:\$email\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Auth/Http/Resources/AuthUserResource.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Auth\\Http\\Resources\\AuthUserResource\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Auth/Http/Resources/AuthUserResource.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Auth\\Http\\Resources\\AuthUserResource\:\:\$name\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Auth/Http/Resources/AuthUserResource.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Auth\\Http\\Resources\\AuthUserResource\:\:\$roles\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Auth/Http/Resources/AuthUserResource.php
+
+		-
+			message: '#^Method Modules\\Auth\\Infrastructure\\Models\\Permission\:\:roles\(\) return type with generic class Illuminate\\Database\\Eloquent\\Relations\\BelongsToMany does not specify its types\: TRelatedModel, TDeclaringModel, TPivotModel, TAccessor \(2\-4 required\)$#'
+			identifier: missingType.generics
+			count: 1
+			path: app/Modules/Auth/Infrastructure/Models/Permission.php
+
+		-
+			message: '#^Method Modules\\Auth\\Infrastructure\\Models\\Role\:\:permissions\(\) return type with generic class Illuminate\\Database\\Eloquent\\Relations\\BelongsToMany does not specify its types\: TRelatedModel, TDeclaringModel, TPivotModel, TAccessor \(2\-4 required\)$#'
+			identifier: missingType.generics
+			count: 1
+			path: app/Modules/Auth/Infrastructure/Models/Role.php
+
+		-
+			message: '#^Method Modules\\Auth\\Infrastructure\\Models\\Role\:\:users\(\) return type with generic class Illuminate\\Database\\Eloquent\\Relations\\BelongsToMany does not specify its types\: TRelatedModel, TDeclaringModel, TPivotModel, TAccessor \(2\-4 required\)$#'
+			identifier: missingType.generics
+			count: 1
+			path: app/Modules/Auth/Infrastructure/Models/Role.php
+
+		-
+			message: '#^Call to an undefined method Pest\\PendingCalls\\TestCall\:\:postJson\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: app/Modules/Auth/Tests/Feature/AuthApiTest.php
+
+		-
+			message: '#^Call to an undefined method Pest\\PendingCalls\\TestCall\:\:seed\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: app/Modules/Auth/Tests/Feature/AuthApiTest.php
+
+		-
+			message: '#^Call to an undefined method Pest\\PendingCalls\\TestCall\:\:withToken\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: app/Modules/Auth/Tests/Feature/AuthApiTest.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Collection\<int, Modules\\Inventory\\Infrastructure\\Models\\Lot\>\|Modules\\Inventory\\Infrastructure\\Models\\Lot\:\:\$quantity\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Dispatch/Application/Actions/ConfirmDispatchAction.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$inventory_lot_id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Dispatch/Application/Actions/ConfirmDispatchAction.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$picked_quantity\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Dispatch/Application/Actions/ConfirmDispatchAction.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Dispatch\\Infrastructure\\Models\\DispatchOrder\:\:\$product_id\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Modules/Dispatch/Application/Actions/ConfirmDispatchAction.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Dispatch\\Infrastructure\\Models\\DispatchOrder\:\:\$quantity\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Modules/Dispatch/Application/Actions/ConfirmDispatchAction.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Dispatch\\Infrastructure\\Models\\DispatchOrder\:\:\$status\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Dispatch/Application/Actions/ConfirmDispatchAction.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Inventory\\Infrastructure\\Models\\StockLevel\:\:\$quantity\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Dispatch/Application/Actions/ConfirmDispatchAction.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Inventory\\Infrastructure\\Models\\StockLevel\:\:\$quantity\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Dispatch/Application/Actions/CreateDispatchOrderAction.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Dispatch\\Infrastructure\\Models\\DispatchOrder\:\:\$product_id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Dispatch/Application/Actions/PickStockUsingFEFOAction.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Dispatch\\Infrastructure\\Models\\DispatchOrder\:\:\$quantity\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Dispatch/Application/Actions/PickStockUsingFEFOAction.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Dispatch\\Infrastructure\\Models\\DispatchOrder\:\:\$status\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Dispatch/Application/Actions/PickStockUsingFEFOAction.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Inventory\\Infrastructure\\Models\\Lot\:\:\$quantity\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Dispatch/Application/Actions/PickStockUsingFEFOAction.php
+
+		-
+			message: '#^Method Modules\\Dispatch\\Http\\Requests\\CreateDispatchOrderRequest\:\:rules\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Modules/Dispatch/Http/Requests/CreateDispatchOrderRequest.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Dispatch\\Http\\Resources\\DispatchOrderResource\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Dispatch/Http/Resources/DispatchOrderResource.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Dispatch\\Http\\Resources\\DispatchOrderResource\:\:\$order_reference\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Dispatch/Http/Resources/DispatchOrderResource.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Dispatch\\Http\\Resources\\DispatchOrderResource\:\:\$picks\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Dispatch/Http/Resources/DispatchOrderResource.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Dispatch\\Http\\Resources\\DispatchOrderResource\:\:\$product_id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Dispatch/Http/Resources/DispatchOrderResource.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Dispatch\\Http\\Resources\\DispatchOrderResource\:\:\$quantity\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Dispatch/Http/Resources/DispatchOrderResource.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Dispatch\\Http\\Resources\\DispatchOrderResource\:\:\$status\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Dispatch/Http/Resources/DispatchOrderResource.php
+
+		-
+			message: '#^Method Modules\\Dispatch\\Http\\Resources\\DispatchOrderResource\:\:toArray\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Modules/Dispatch/Http/Resources/DispatchOrderResource.php
+
+		-
+			message: '#^Method Modules\\Dispatch\\Infrastructure\\Models\\DispatchOrder\:\:picks\(\) return type with generic class Illuminate\\Database\\Eloquent\\Relations\\HasMany does not specify its types\: TRelatedModel, TDeclaringModel$#'
+			identifier: missingType.generics
+			count: 1
+			path: app/Modules/Dispatch/Infrastructure/Models/DispatchOrder.php
+
+		-
+			message: '#^Method Modules\\Dispatch\\Infrastructure\\Models\\DispatchPick\:\:order\(\) return type with generic class Illuminate\\Database\\Eloquent\\Relations\\BelongsTo does not specify its types\: TRelatedModel, TDeclaringModel$#'
+			identifier: missingType.generics
+			count: 1
+			path: app/Modules/Dispatch/Infrastructure/Models/DispatchPick.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$quantity\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Dispatch/Tests/Feature/DispatchApiTest.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Inventory\\Infrastructure\\Models\\Lot\:\:\$quantity\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Modules/Dispatch/Tests/Feature/DispatchApiTest.php
+
+		-
+			message: '#^Call to an undefined method Pest\\PendingCalls\\TestCall\:\:postJson\(\)\.$#'
+			identifier: method.notFound
+			count: 3
+			path: app/Modules/Dispatch/Tests/Feature/DispatchApiTest.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$quantity\.$#'
+			identifier: property.notFound
+			count: 5
+			path: app/Modules/Inventory/Application/Actions/AdjustStockAction.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Inventory\\Infrastructure\\Models\\Product\:\:\$reorder_point\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Modules/Inventory/Application/Actions/AdjustStockAction.php
+
+		-
+			message: '#^Method Modules\\Inventory\\Application\\Actions\\ListProductsBelowReorderPointAction\:\:__invoke\(\) return type with generic class Illuminate\\Support\\Collection does not specify its types\: TKey, TValue$#'
+			identifier: missingType.generics
+			count: 1
+			path: app/Modules/Inventory/Application/Actions/ListProductsBelowReorderPointAction.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Inventory\\Infrastructure\\Models\\Product\:\:\$sku\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Inventory/Application/Actions/RegisterProductAction.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Inventory\\Http\\Resources\\ProductResource\:\:\$created_at\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Inventory/Http/Resources/ProductResource.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Inventory\\Http\\Resources\\ProductResource\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Inventory/Http/Resources/ProductResource.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Inventory\\Http\\Resources\\ProductResource\:\:\$name\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Inventory/Http/Resources/ProductResource.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Inventory\\Http\\Resources\\ProductResource\:\:\$reorder_point\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Inventory/Http/Resources/ProductResource.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Inventory\\Http\\Resources\\ProductResource\:\:\$sku\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Inventory/Http/Resources/ProductResource.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Inventory\\Http\\Resources\\ProductResource\:\:\$updated_at\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Inventory/Http/Resources/ProductResource.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Inventory\\Infrastructure\\Models\\StockLevel\:\:\$quantity\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Inventory/Infrastructure/Listeners/SyncInventoryOnMerchandiseReceived.php
+
+		-
+			message: '#^Method Modules\\Inventory\\Infrastructure\\Models\\Location\:\:lots\(\) return type with generic class Illuminate\\Database\\Eloquent\\Relations\\HasMany does not specify its types\: TRelatedModel, TDeclaringModel$#'
+			identifier: missingType.generics
+			count: 1
+			path: app/Modules/Inventory/Infrastructure/Models/Location.php
+
+		-
+			message: '#^Method Modules\\Inventory\\Infrastructure\\Models\\Lot\:\:location\(\) return type with generic class Illuminate\\Database\\Eloquent\\Relations\\BelongsTo does not specify its types\: TRelatedModel, TDeclaringModel$#'
+			identifier: missingType.generics
+			count: 1
+			path: app/Modules/Inventory/Infrastructure/Models/Lot.php
+
+		-
+			message: '#^Method Modules\\Inventory\\Infrastructure\\Models\\Lot\:\:product\(\) return type with generic class Illuminate\\Database\\Eloquent\\Relations\\BelongsTo does not specify its types\: TRelatedModel, TDeclaringModel$#'
+			identifier: missingType.generics
+			count: 1
+			path: app/Modules/Inventory/Infrastructure/Models/Lot.php
+
+		-
+			message: '#^Class Modules\\Inventory\\Infrastructure\\Models\\Product uses generic trait Illuminate\\Database\\Eloquent\\Factories\\HasFactory but does not specify its types\: TFactory$#'
+			identifier: missingType.generics
+			count: 1
+			path: app/Modules/Inventory/Infrastructure/Models/Product.php
+
+		-
+			message: '#^Method Modules\\Inventory\\Infrastructure\\Models\\Product\:\:lots\(\) return type with generic class Illuminate\\Database\\Eloquent\\Relations\\HasMany does not specify its types\: TRelatedModel, TDeclaringModel$#'
+			identifier: missingType.generics
+			count: 1
+			path: app/Modules/Inventory/Infrastructure/Models/Product.php
+
+		-
+			message: '#^Method Modules\\Inventory\\Infrastructure\\Models\\Product\:\:stockLevel\(\) return type with generic class Illuminate\\Database\\Eloquent\\Relations\\HasOne does not specify its types\: TRelatedModel, TDeclaringModel$#'
+			identifier: missingType.generics
+			count: 1
+			path: app/Modules/Inventory/Infrastructure/Models/Product.php
+
+		-
+			message: '#^Method Modules\\Inventory\\Infrastructure\\Models\\StockLevel\:\:product\(\) return type with generic class Illuminate\\Database\\Eloquent\\Relations\\BelongsTo does not specify its types\: TRelatedModel, TDeclaringModel$#'
+			identifier: missingType.generics
+			count: 1
+			path: app/Modules/Inventory/Infrastructure/Models/StockLevel.php
+
+		-
+			message: '#^Method Modules\\Inventory\\Infrastructure\\Repositories\\EloquentProductRepository\:\:belowReorderPoint\(\) return type with generic class Illuminate\\Support\\Collection does not specify its types\: TKey, TValue$#'
+			identifier: missingType.generics
+			count: 1
+			path: app/Modules/Inventory/Infrastructure/Repositories/EloquentProductRepository.php
+
+		-
+			message: '#^Method Modules\\Inventory\\Infrastructure\\Repositories\\EloquentProductRepository\:\:cursorPaginate\(\) return type with generic interface Illuminate\\Contracts\\Pagination\\CursorPaginator does not specify its types\: TKey, TValue$#'
+			identifier: missingType.generics
+			count: 1
+			path: app/Modules/Inventory/Infrastructure/Repositories/EloquentProductRepository.php
+
+		-
+			message: '#^Access to an undefined property Pest\\Mixins\\Expectation\<array\<mixed\>\|null\>\:\:\$not\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Inventory/Tests/Feature/InventoryApiTest.php
+
+		-
+			message: '#^Call to an undefined method Pest\\PendingCalls\\TestCall\:\:getJson\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Modules/Inventory/Tests/Feature/InventoryApiTest.php
+
+		-
+			message: '#^Call to an undefined method Pest\\PendingCalls\\TestCall\:\:patchJson\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Modules/Inventory/Tests/Feature/InventoryApiTest.php
+
+		-
+			message: '#^Call to an undefined method Pest\\PendingCalls\\TestCall\:\:postJson\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Modules/Inventory/Tests/Feature/InventoryApiTest.php
+
+		-
+			message: '#^Unable to resolve the template type TKey in call to function collect$#'
+			identifier: argument.templateType
+			count: 1
+			path: app/Modules/Inventory/Tests/Feature/InventoryApiTest.php
+
+		-
+			message: '#^Unable to resolve the template type TValue in call to function collect$#'
+			identifier: argument.templateType
+			count: 1
+			path: app/Modules/Inventory/Tests/Feature/InventoryApiTest.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Receiving\\Infrastructure\\Models\\ReceiptLotLink\:\:\$expires_at\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Receiving/Application/Actions/LinkLotToReceiptAction.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Receiving\\Infrastructure\\Models\\ReceiptLotLink\:\:\$location_id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Receiving/Application/Actions/LinkLotToReceiptAction.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Receiving\\Infrastructure\\Models\\ReceiptLotLink\:\:\$lot_number\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Receiving/Application/Actions/LinkLotToReceiptAction.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Receiving\\Infrastructure\\Models\\ReceiptLotLink\:\:\$product_id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Receiving/Application/Actions/LinkLotToReceiptAction.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Receiving\\Infrastructure\\Models\\ReceiptLotLink\:\:\$quantity\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Receiving/Application/Actions/LinkLotToReceiptAction.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Receiving\\Infrastructure\\Models\\ReceiptLotLink\:\:\$receipt_id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Receiving/Application/Actions/LinkLotToReceiptAction.php
+
+		-
+			message: '#^Method Modules\\Receiving\\Http\\Requests\\LinkLotToReceiptRequest\:\:rules\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Modules/Receiving/Http/Requests/LinkLotToReceiptRequest.php
+
+		-
+			message: '#^Method Modules\\Receiving\\Http\\Requests\\RegisterReceiptRequest\:\:rules\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Modules/Receiving/Http/Requests/RegisterReceiptRequest.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Receiving\\Http\\Resources\\ReceiptLotLinkResource\:\:\$expires_at\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Receiving/Http/Resources/ReceiptLotLinkResource.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Receiving\\Http\\Resources\\ReceiptLotLinkResource\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Receiving/Http/Resources/ReceiptLotLinkResource.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Receiving\\Http\\Resources\\ReceiptLotLinkResource\:\:\$location_id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Receiving/Http/Resources/ReceiptLotLinkResource.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Receiving\\Http\\Resources\\ReceiptLotLinkResource\:\:\$lot_number\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Receiving/Http/Resources/ReceiptLotLinkResource.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Receiving\\Http\\Resources\\ReceiptLotLinkResource\:\:\$product_id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Receiving/Http/Resources/ReceiptLotLinkResource.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Receiving\\Http\\Resources\\ReceiptLotLinkResource\:\:\$quantity\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Receiving/Http/Resources/ReceiptLotLinkResource.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Receiving\\Http\\Resources\\ReceiptLotLinkResource\:\:\$receipt_id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Receiving/Http/Resources/ReceiptLotLinkResource.php
+
+		-
+			message: '#^Method Modules\\Receiving\\Http\\Resources\\ReceiptLotLinkResource\:\:toArray\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Modules/Receiving/Http/Resources/ReceiptLotLinkResource.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Receiving\\Http\\Resources\\ReceiptResource\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Receiving/Http/Resources/ReceiptResource.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Receiving\\Http\\Resources\\ReceiptResource\:\:\$notes\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Receiving/Http/Resources/ReceiptResource.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Receiving\\Http\\Resources\\ReceiptResource\:\:\$received_at\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Receiving/Http/Resources/ReceiptResource.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Receiving\\Http\\Resources\\ReceiptResource\:\:\$supplier_reference\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Receiving/Http/Resources/ReceiptResource.php
+
+		-
+			message: '#^Method Modules\\Receiving\\Http\\Resources\\ReceiptResource\:\:toArray\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Modules/Receiving/Http/Resources/ReceiptResource.php
+
+		-
+			message: '#^Method Modules\\Receiving\\Infrastructure\\Models\\Receipt\:\:lots\(\) return type with generic class Illuminate\\Database\\Eloquent\\Relations\\HasMany does not specify its types\: TRelatedModel, TDeclaringModel$#'
+			identifier: missingType.generics
+			count: 1
+			path: app/Modules/Receiving/Infrastructure/Models/Receipt.php
+
+		-
+			message: '#^Method Modules\\Receiving\\Infrastructure\\Models\\ReceiptLotLink\:\:receipt\(\) return type with generic class Illuminate\\Database\\Eloquent\\Relations\\BelongsTo does not specify its types\: TRelatedModel, TDeclaringModel$#'
+			identifier: missingType.generics
+			count: 1
+			path: app/Modules/Receiving/Infrastructure/Models/ReceiptLotLink.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$quantity\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Receiving/Tests/Feature/ReceivingApiTest.php
+
+		-
+			message: '#^Call to an undefined method Pest\\PendingCalls\\TestCall\:\:postJson\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: app/Modules/Receiving/Tests/Feature/ReceivingApiTest.php
+
+		-
+			message: '#^Method Modules\\Reporting\\Application\\Actions\\GetInventoryMetricsAction\:\:__invoke\(\) return type with generic class Illuminate\\Support\\Collection does not specify its types\: TKey, TValue$#'
+			identifier: missingType.generics
+			count: 1
+			path: app/Modules/Reporting/Application/Actions/GetInventoryMetricsAction.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Reporting\\Infrastructure\\Models\\InventoryMetric\:\:\$current_stock\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Reporting/Application/Exports/InventoryMetricsExport.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Reporting\\Infrastructure\\Models\\InventoryMetric\:\:\$product_id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Reporting/Application/Exports/InventoryMetricsExport.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Reporting\\Infrastructure\\Models\\InventoryMetric\:\:\$product_name\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Reporting/Application/Exports/InventoryMetricsExport.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Reporting\\Infrastructure\\Models\\InventoryMetric\:\:\$reorder_point\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Reporting/Application/Exports/InventoryMetricsExport.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Reporting\\Infrastructure\\Models\\InventoryMetric\:\:\$sku\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Reporting/Application/Exports/InventoryMetricsExport.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Reporting\\Infrastructure\\Models\\InventoryMetric\:\:\$stock_gap\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Reporting/Application/Exports/InventoryMetricsExport.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Reporting\\Infrastructure\\Models\\InventoryMetric\:\:\$updated_from_event_at\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Reporting/Application/Exports/InventoryMetricsExport.php
+
+		-
+			message: '#^Method Modules\\Reporting\\Application\\Exports\\InventoryMetricsExport\:\:collection\(\) return type with generic class Illuminate\\Support\\Collection does not specify its types\: TKey, TValue$#'
+			identifier: missingType.generics
+			count: 1
+			path: app/Modules/Reporting/Application/Exports/InventoryMetricsExport.php
+
+		-
+			message: '#^Method Modules\\Reporting\\Application\\Exports\\InventoryMetricsExport\:\:headings\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Modules/Reporting/Application/Exports/InventoryMetricsExport.php
+
+		-
+			message: '#^Parameter \#1 \$callback of method Illuminate\\Database\\Eloquent\\Collection\<int,Modules\\Reporting\\Infrastructure\\Models\\InventoryMetric\>\:\:map\(\) contains unresolvable type\.$#'
+			identifier: argument.unresolvableType
+			count: 1
+			path: app/Modules/Reporting/Application/Exports/InventoryMetricsExport.php
+
+		-
+			message: '#^Return type of call to method Illuminate\\Database\\Eloquent\\Collection\<int,Modules\\Reporting\\Infrastructure\\Models\\InventoryMetric\>\:\:map\(\) contains unresolvable type\.$#'
+			identifier: method.unresolvableReturnType
+			count: 1
+			path: app/Modules/Reporting/Application/Exports/InventoryMetricsExport.php
+
+		-
+			message: '#^Method Modules\\Reporting\\Http\\Controllers\\ReportingController\:\:exportMetricsExcel\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: app/Modules/Reporting/Http/Controllers/ReportingController.php
+
+		-
+			message: '#^Method Modules\\Reporting\\Http\\Controllers\\ReportingController\:\:exportMetricsPdf\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: app/Modules/Reporting/Http/Controllers/ReportingController.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Reporting\\Http\\Resources\\InventoryMetricResource\:\:\$current_stock\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Reporting/Http/Resources/InventoryMetricResource.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Reporting\\Http\\Resources\\InventoryMetricResource\:\:\$product_id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Reporting/Http/Resources/InventoryMetricResource.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Reporting\\Http\\Resources\\InventoryMetricResource\:\:\$product_name\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Reporting/Http/Resources/InventoryMetricResource.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Reporting\\Http\\Resources\\InventoryMetricResource\:\:\$reorder_point\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Reporting/Http/Resources/InventoryMetricResource.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Reporting\\Http\\Resources\\InventoryMetricResource\:\:\$sku\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Reporting/Http/Resources/InventoryMetricResource.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Reporting\\Http\\Resources\\InventoryMetricResource\:\:\$stock_gap\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Reporting/Http/Resources/InventoryMetricResource.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Reporting\\Http\\Resources\\InventoryMetricResource\:\:\$updated_from_event_at\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Reporting/Http/Resources/InventoryMetricResource.php
+
+		-
+			message: '#^Method Modules\\Reporting\\Http\\Resources\\InventoryMetricResource\:\:toArray\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Modules/Reporting/Http/Resources/InventoryMetricResource.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$quantity\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Reporting/Infrastructure/Listeners/UpdateInventoryMetricsOnStockAdjusted.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Inventory\\Infrastructure\\Models\\Product\:\:\$name\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Reporting/Infrastructure/Listeners/UpdateInventoryMetricsOnStockAdjusted.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Inventory\\Infrastructure\\Models\\Product\:\:\$reorder_point\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Reporting/Infrastructure/Listeners/UpdateInventoryMetricsOnStockAdjusted.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Inventory\\Infrastructure\\Models\\Product\:\:\$sku\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Reporting/Infrastructure/Listeners/UpdateInventoryMetricsOnStockAdjusted.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Reporting\\Infrastructure\\Models\\InventoryMetric\:\:\$current_stock\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Reporting/Tests/Feature/ReportingApiTest.php
+
+		-
+			message: '#^Access to an undefined property Modules\\Reporting\\Infrastructure\\Models\\InventoryMetric\:\:\$stock_gap\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Modules/Reporting/Tests/Feature/ReportingApiTest.php
+
+		-
+			message: '#^Call to an undefined method Pest\\PendingCalls\\TestCall\:\:get\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: app/Modules/Reporting/Tests/Feature/ReportingApiTest.php
+
+		-
+			message: '#^Call to an undefined method Pest\\PendingCalls\\TestCall\:\:getJson\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: app/Modules/Reporting/Tests/Feature/ReportingApiTest.php
+
+		-
+			message: '#^Call to an undefined method Pest\\PendingCalls\\TestCall\:\:patchJson\(\)\.$#'
+			identifier: method.notFound
+			count: 3
+			path: app/Modules/Reporting/Tests/Feature/ReportingApiTest.php
+
+		-
+			message: '#^Unable to resolve the template type TAndValue in call to method Pest\\Expectation\<mixed\>\:\:and\(\)$#'
+			identifier: argument.templateType
+			count: 2
+			path: app/Modules/Reporting/Tests/Feature/ReportingApiTest.php
+
+		-
+			message: '#^Constant L5_SWAGGER_CONST_HOST not found\.$#'
+			identifier: constant.notFound
+			count: 1
+			path: app/Modules/Shared/Http/OpenApi.php
+
+		-
+			message: '#^Call to method PHPUnit\\Framework\\Assert\:\:assertTrue\(\) with true will always evaluate to true\.$#'
+			identifier: method.alreadyNarrowedType
+			count: 1
+			path: tests/Unit/ExampleTest.php

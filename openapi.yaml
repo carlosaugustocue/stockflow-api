@@ -1,0 +1,181 @@
+openapi: 3.0.0
+info:
+  title: 'Stockflow API'
+  description: 'API REST para inventario y logística de centros de distribución'
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost:8000'
+    description: 'Servidor principal'
+paths:
+  /api/v1/auth/login:
+    post:
+      tags:
+        - Auth
+      summary: 'Iniciar sesión con credenciales'
+      operationId: ccce227a6532e9aa9166893b0a10946a
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              required:
+                - email
+                - password
+                - device_name
+              properties:
+                email:
+                  type: string
+                  format: email
+                password:
+                  type: string
+                device_name:
+                  type: string
+              type: object
+      responses:
+        200:
+          description: 'Autenticación exitosa'
+        401:
+          description: 'Credenciales inválidas'
+  /api/v1/auth/logout:
+    post:
+      tags:
+        - Auth
+      summary: 'Cerrar sesión y revocar token actual'
+      operationId: 16518d98e370a15ebf10146f70441e39
+      responses:
+        200:
+          description: 'Sesión cerrada'
+      security:
+        -
+          bearerAuth: []
+  /api/v1/auth/me:
+    get:
+      tags:
+        - Auth
+      summary: 'Obtiene el usuario autenticado'
+      operationId: a8703cbdf5dcee853c29b34bb2f7c58b
+      responses:
+        200:
+          description: 'Usuario autenticado'
+      security:
+        -
+          bearerAuth: []
+  /api/v1/inventory/products:
+    get:
+      tags:
+        - Inventory
+      summary: 'Lista productos con paginación por cursor'
+      operationId: 0e26126b62eab2ee460e812b592289dd
+      parameters:
+        -
+          name: per_page
+          in: query
+          schema:
+            type: integer
+            maximum: 100
+            minimum: 1
+      responses:
+        200:
+          description: 'Listado de productos'
+    post:
+      tags:
+        - Inventory
+      summary: 'Registra un producto'
+      operationId: 733cc3c23682eadf6f9b5dc1cbce58e0
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              required:
+                - name
+                - sku
+                - reorder_point
+              properties:
+                name:
+                  type: string
+                sku:
+                  type: string
+                reorder_point:
+                  type: integer
+                  minimum: 0
+              type: object
+      responses:
+        201:
+          description: 'Producto registrado'
+  '/api/v1/inventory/products/{productId}':
+    get:
+      tags:
+        - Inventory
+      summary: 'Consulta stock de producto'
+      operationId: 828f7259295b423d250f0fb4a5e6ae29
+      parameters:
+        -
+          name: productId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: 'Detalle de producto'
+  '/api/v1/inventory/products/{productId}/stock':
+    patch:
+      tags:
+        - Inventory
+      summary: 'Ajusta stock de un producto'
+      operationId: e04c3aa230cfb6bafe8ae5aefbc134c8
+      parameters:
+        -
+          name: productId
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              required:
+                - quantity
+                - operation
+                - reason
+              properties:
+                quantity:
+                  type: integer
+                  minimum: 1
+                operation:
+                  type: string
+                  enum:
+                    - add
+                    - subtract
+                reason:
+                  type: string
+              type: object
+      responses:
+        200:
+          description: 'Stock ajustado'
+  /api/v1/inventory/products/below-reorder-point:
+    get:
+      tags:
+        - Inventory
+      summary: 'Lista productos bajo punto de reorden'
+      operationId: b4b9c061136e8526d5d63927158d890b
+      responses:
+        200:
+          description: 'Listado filtrado'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      bearerFormat: Token
+      scheme: bearer
+tags:
+  -
+    name: Auth
+    description: Auth
+  -
+    name: Inventory
+    description: Inventory
